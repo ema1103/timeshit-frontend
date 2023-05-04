@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/logo.png">
+    <title>Timeshit</title>
+</head>
+<body>
+    <script>
+        const email = localStorage.getItem('jira-email') || sessionStorage.getItem('jira-email');
+        const token = localStorage.getItem('jira-token') || sessionStorage.getItem('jira-token');
+
+        if (!Boolean(email) && !Boolean(token)) {
+            location.pathname = '/login.html';
+        } else {
+            location.pathname = '/calendar.html';
+        }
+    </script>
+</body>
+</html>

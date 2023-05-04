@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Timeshit</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="assets/img/logo.png">
+    <link rel="stylesheet" href="css/alerta.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="app-title"><img src="assets/img/logo.png">Timeshit</h1>
+        <div class="profile">
+            <img src="assets/img/profile.jpg" alt="Profile picture" class="profile-pic">
+            <div class="tooltip">
+                <p class="email">emanuelm@fktech.net</p>
+                <button class="logout-btn">Cerrar sesión</button>
+            </div>
+        </div>
+    </header>
+    <div class="filters-container">
+        <label for="date-range">Rango de fechas:</label>
+        <input type="date" id="start-date" name="start-date">
+        <input type="date" id="end-date" name="end-date">
+
+        <button id="apply-filters-btn">Buscar</button>
+    </div>
+    <div class="calendar-container">
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+
+        </div>
+    </div>
+    <div id="loader">
+        <div class="loader-container">
+            <div class="loader"></div>
+        </div>
+    </div>
+    <div id="alerta" class="alerta">
+        <div class="contenido">
+            <h2>¿Estás seguro que deseas eliminar el registro de hora?</h2>
+            <p>¿Quieres continuar?</p>
+            <div class="botones">
+                <button class="si">Sí</button>
+                <button class="no" onclick="no()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/alerta.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

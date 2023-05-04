@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Timeshit</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="assets/img/logo.png">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group--keep-logged-in {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-group--keep-logged-in * {
+            width: initial !important;
+            padding: 6px;
+            user-select: none;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="checkbox"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+            width: 100%;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="assets/img/logo.png" alt="Logo de la aplicación">
+            <h1>Timeshit</h1>
+        </div>
+        <form id="form-login">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label for="token">Token de jira:</label>
+                <input type="password" id="token" name="token" required>
+            </div>
+            <div class="form-group form-group--keep-logged-in">
+                <input type="checkbox" id="keeplogged" name="keeplogged" checked="checked">
+                <label for="keeplogged">Mantener sesión activa</label>
+            </div>
+            <button type="submit">Iniciar sesión</button>
+        </form>
+    </div>
+    <script>
+        const email = localStorage.getItem('jira-email') || sessionStorage.getItem('jira-email');
+        const token = localStorage.getItem('jira-token') || sessionStorage.getItem('jira-token');
+
+        if (Boolean(email) && Boolean(token)) {
+            location.pathname = '/calendar.html';
+        }
+
+        let formLogin = document.getElementById('form-login');
+
+        formLogin.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            const { value: email } = e.target.email;
+            const { value: token } = e.target.token;
+            const { checked: keepLogged } = e.target.keeplogged;
+
+            if (keepLogged) {
+                localStorage.setItem('jira-email', email);
+                localStorage.setItem('jira-token', token);
+            } else {
+                sessionStorage.setItem('jira-email', email);
+                sessionStorage.setItem('jira-token', token);
+            }
+
+            location.pathname = '/calendar.html';
+        })
+    </script>
+</body>
+
+</html>

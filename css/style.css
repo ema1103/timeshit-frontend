@@ -1,0 +1,212 @@
+* {
+    font-family: sans-serif;
+    user-select: none;
+}
+
+*::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+*::-webkit-scrollbar:vertical {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-button:increment,
+*::-webkit-scrollbar-button {
+    display: none;
+}
+
+*::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+*::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+body {
+    margin-top: 60px;
+    overflow: hidden;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #4CAF50;
+    color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.app-title {
+    flex-grow: 1;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-title img {
+    height: 60px;
+}
+
+.profile {
+    position: relative;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 10px;
+    user-select: none;
+}
+
+.tooltip {
+    position: absolute;
+    color: #333;
+    top: 50px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: none;
+    padding: 10px;
+}
+
+.tooltip::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    border: 10px solid transparent;
+    border-bottom-color: #fff;
+}
+
+.email {
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.logout-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.filters-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    padding: 1em;
+}
+
+.filters-container * {
+    margin: 0 .5em;
+}
+
+label {
+    margin-right: 10px;
+}
+
+input[type="date"],
+select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    padding: .5em 1em;
+    border: none;
+    border-radius: 3px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
+
+.calendar-container {
+    width: 99vw;
+    height: 74vh;
+    display: flex;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+}
+
+.calendar-column {
+    min-width: 350px;
+    height: 99%;
+    overflow-y: hidden;
+    margin: 0 .5em;
+    padding: 0 .5em;
+    border: 1px dashed black;
+    border-radius: 1em;
+    background-color: #e8e8e8;
+}
+
+.calendar-column-header {
+    padding: 1em;
+}
+
+.hours {
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    font-size: medium;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+.calendar-column-body {
+    padding: 1em;
+    max-height: 85%;
+    border-radius: 1em;
+    overflow-y: scroll;
+    background-color: white;
+}
+
+.card {
+    border: 1px solid rgba(0, 0, 0, 0.249);
+    padding: .5em;
+    border-radius: .5em;
+    margin: .5em 0;
+}
+
+.btn-edit-worklog {
+    background-color: dodgerblue;
+}
+
+.btn-edit-worklog:hover {
+    background-color: rgb(22, 105, 189);
+}
+
+.btn-delete-worklog {
+    background-color: crimson;
+}
+
+.btn-delete-worklog:hover {
+    background-color: rgb(167, 14, 45);
+}
