@@ -8,7 +8,7 @@ if (!Boolean(email) && !Boolean(token)) {
 /* const JIRA_API_URL = 'http://localhost';
 const JIRA_API_PORT = ':3000'; */
 /* PRODUCCION */
-const JIRA_API_URL = 'https://dulcet-cuchufli-394ae2.netlify.app';
+const JIRA_API_URL = 'https://timeshit-backend-compass.onrender.com';
 const JIRA_API_PORT = '';
 let worklogsData = {};
 let dates = [];
