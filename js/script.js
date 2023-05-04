@@ -6,7 +6,7 @@ if (!Boolean(email) && !Boolean(token)) {
 }
 /* LOCAL */
 const JIRA_API_URL = 'http://localhost';
-const JIRA_API_PORT = ':3000';
+const JIRA_API_PORT = ':3010';
 /* PRODUCCION */
 /* const JIRA_API_URL = 'https://timeshit-backend-compass.onrender.com';
 const JIRA_API_PORT = ''; */
