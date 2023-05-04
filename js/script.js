@@ -5,11 +5,11 @@ if (!Boolean(email) && !Boolean(token)) {
     location.pathname = '/login.html';
 }
 /* LOCAL */
-/* const JIRA_API_URL = 'http://localhost';
-const JIRA_API_PORT = ':3000'; */
+const JIRA_API_URL = 'http://localhost';
+const JIRA_API_PORT = ':3000';
 /* PRODUCCION */
-const JIRA_API_URL = 'https://timeshit-backend-compass.onrender.com';
-const JIRA_API_PORT = '';
+/* const JIRA_API_URL = 'https://timeshit-backend-compass.onrender.com';
+const JIRA_API_PORT = ''; */
 let worklogsData = {};
 let dates = [];
 
