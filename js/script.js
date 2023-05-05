@@ -31,6 +31,8 @@ document.querySelector('.tooltip').addEventListener('click', function (event) {
     event.stopPropagation();
 });
 
+document.querySelector('.tooltip .email').innerText = email;
+
 const applyFiltersBtn = document.getElementById("apply-filters-btn");
 applyFiltersBtn.addEventListener("click", applyFilters);
 
