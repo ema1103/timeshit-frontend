@@ -124,7 +124,7 @@ function cargarHS(event, started) {
             }
         })
         .catch(error => {
-            alert('error al intentar agregar registro de hora');
+            alert('error al intentar agregar registro de hora, si el error persiste cambia el token o contacta a tu memero de confianza');
             console.log(error);
             hideLoader();
         });
@@ -162,7 +162,7 @@ function editarHS(event, dataJSON) {
             }
         })
         .catch(error => {
-            alert('error al intentar editar registro de hora');
+            alert('error al intentar editar registro de hora, si el error persiste cambia el token o contacta a tu memero de confianza');
             console.log(error);
             hideLoader();
         })
@@ -184,7 +184,7 @@ function eliminarHS(data) {
             applyFilters();
         })
         .catch(error => {
-            alert('error al intentar borrar registro');
+            alert('error al intentar borrar registro, si el error persiste cambia el token o contacta a tu memero de confianza');
             console.log(error);
             hideLoader();
         })
@@ -206,7 +206,10 @@ function getWorklogs(startDate, endDate) {
             worklogsData = data.worklogs;
             renderWorklogs(startDate, endDate);
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+            console.log(error);
+            alert('Error al mostrar las horas cargadas, si el error persiste cambia el token, fijate que esté correcto el email o contacta a tu memero de confianza');
+        })
         .finally(() => {
             hideLoader()
         })
