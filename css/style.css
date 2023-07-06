@@ -157,6 +157,8 @@ button:hover {
 
 .calendar-column {
     min-width: 350px;
+    flex-basis: 350px;
+    flex-grow: 1;
     height: 99%;
     overflow-y: hidden;
     margin: 0 .5em;

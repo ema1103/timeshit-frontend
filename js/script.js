@@ -263,7 +263,7 @@ function renderWorklogs(startDate, endDate) {
                 </div>
             </div>`;
             return auxCardHTML;
-        })
+        }).join('');
 
         auxHTML += `
             </div>
@@ -271,7 +271,7 @@ function renderWorklogs(startDate, endDate) {
         `;
 
         return auxHTML;
-    });
+    }).join('');
 
     document.querySelector('.calendar-container').innerHTML = calendarColumnsHTML;
 }
