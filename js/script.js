@@ -42,7 +42,7 @@ const endDateInput = document.getElementById("end-date");
 
 // Creamos un objeto de fecha para la fecha actual
 const currentDate = new Date();
-currentDate.setDate(currentDate.getDate() - 1);
+currentDate.setDate(currentDate.getDate());
 
 // Establecemos el valor por defecto de la fecha de inicio del mes para el input de fecha de inicio
 const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
