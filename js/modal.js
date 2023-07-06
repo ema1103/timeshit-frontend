@@ -124,3 +124,19 @@ function openModalEditWorklog(id) {
     modalContent.innerHTML = html;
     modal.style.display = "flex";
 }
+
+function openModalMeme() {
+    let timestamp = (new Date()).getTime();
+    let html = `
+    <span class="close" onclick="modalClose();">&times;</span>
+    <div>
+        <h2>Meme del mes</h2>
+        <div class="modal-meme">
+            <img src="/assets/img/meme.png?timestamp=${timestamp}" alt="meme del mes" />
+        </div>
+    </div>
+    `;
+
+    modalContent.innerHTML = html;
+    modal.style.display = "flex";
+}
