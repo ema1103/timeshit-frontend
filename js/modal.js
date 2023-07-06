@@ -50,9 +50,20 @@ function openModalAddWorklog(dt) {
                 <label for="ticket">Ticket (solo el numero, ejemplo 8115):</label>
                 <input type="text" id="ticket" name="ticket" autocomplete="off" required>
             </div>
-            <div class="form-group">
-                <label for="timeSpent">Tiempo gastado en minutos (1h = 60m):</label>
-                <input type="number" id="timeSpent" name="timeSpent" required>
+            <div class="form-group timespent">
+                <label>
+                    Tiempo invertido en la tarea (se cambió "gastado" por "invertido" porque ambos sabemos que no gastaste tiempo)
+                </label>
+                <div class="timespent">
+                    <div>
+                        <label>Horas: </label>
+                        <input type="number" id="timeSpentHours" name="timeSpentHours" min="0" value="0" required>
+                    </div>
+                    <div>
+                        <label>Minutos: </label>
+                        <input type="number" id="timeSpentMinutes" name="timeSpentMinutes" min="1" value="0" required>
+                    </div>
+                </div>
             </div>
             <div class="form-group comment">
                 <label for="comment">Descripcion de lo realizado:</label>
@@ -64,7 +75,7 @@ function openModalAddWorklog(dt) {
     `;
 
     modalContent.innerHTML = html;
-    modal.style.display = "block";
+    modal.style.display = "flex";
 }
 
 function openModalEditWorklog(id) {
@@ -73,6 +84,9 @@ function openModalEditWorklog(id) {
         return wl[dt].find(task => task.id === id)
     })
     dtArr = Object.values(dtArr)[0].find(wl => wl.id === id);
+
+    let hours = Math.floor(dtArr.timeSpentSeconds / 3600);
+    let minutes = Math.floor((dtArr.timeSpentSeconds % 3600) / 60);
 
     let html = `
     <span class="close" onclick="modalClose();">&times;</span>
@@ -83,9 +97,20 @@ function openModalEditWorklog(id) {
                 <label for="ticket">Ticket:</label>
                 <input type="text" id="ticket" name="ticket" autocomplete="off" value="${dtArr.description.key.substr(3, 4)}" disabled required>
             </div>
-            <div class="form-group">
-                <label for="timeSpent">Tiempo gastado en minutos (1h = 60m):</label>
-                <input type="number" id="timeSpent" name="timeSpent" value="${dtArr.timeSpentSeconds / 60}" required>
+            <div class="form-group timespent">
+                <label>
+                    Tiempo invertido en la tarea (se cambió "gastado" por "invertido" porque ambos sabemos que no gastaste tiempo)
+                </label>
+                <div class="timespent">
+                    <div>
+                        <label>Horas: </label>
+                        <input type="number" id="timeSpentHours" name="timeSpentHours" min="0" value="${hours}" required>
+                    </div>
+                    <div>
+                        <label>Minutos: </label>
+                        <input type="number" id="timeSpentMinutes" name="timeSpentMinutes" min="1" value="${minutes}" required>
+                    </div>
+                </div>
             </div>
             <div class="form-group comment">
                 <label for="comment">Descripcion de lo realizado:</label>
@@ -97,5 +122,5 @@ function openModalEditWorklog(id) {
     `;
 
     modalContent.innerHTML = html;
-    modal.style.display = "block";
+    modal.style.display = "flex";
 }

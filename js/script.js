@@ -99,7 +99,7 @@ function cargarHS(event, started) {
     const { target } = event;
     const { value: key } = target.ticket;
     const { value: comment } = target.comment;
-    const timeSpentSeconds = target.timeSpent.value * 60;
+    const timeSpentSeconds = target.timeSpentHours.value * 60 * 60 + target.timeSpentMinutes.value * 60;
     const data = { key, comment, timeSpentSeconds, started };
 
     showLoader();
@@ -133,9 +133,10 @@ function cargarHS(event, started) {
 function editarHS(event, dataJSON) {
     event.preventDefault();
 
-    const { value: comment } = event.target.comment;
-    const { value: key } = event.target.ticket;
-    const timeSpentSeconds = event.target.timeSpent.value * 60;
+    const { target } = event;
+    const { value: comment } = target.comment;
+    const { value: key } = target.ticket;
+    const timeSpentSeconds = target.timeSpentHours.value * 60 * 60 + target.timeSpentMinutes.value * 60;
     const { started, id } = dataJSON;
 
     const data = { id, key, comment, timeSpentSeconds, started };
