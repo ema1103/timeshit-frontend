@@ -61,7 +61,7 @@ function openModalAddWorklog(dt) {
                     </div>
                     <div>
                         <label>Minutos: </label>
-                        <input type="number" id="timeSpentMinutes" name="timeSpentMinutes" min="1" value="0" required>
+                        <input type="number" id="timeSpentMinutes" name="timeSpentMinutes" min="0" value="0" required>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@ function openModalEditWorklog(id) {
                     </div>
                     <div>
                         <label>Minutos: </label>
-                        <input type="number" id="timeSpentMinutes" name="timeSpentMinutes" min="1" value="${minutes}" required>
+                        <input type="number" id="timeSpentMinutes" name="timeSpentMinutes" min="0" value="${minutes}" required>
                     </div>
                 </div>
             </div>
