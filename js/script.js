@@ -26,6 +26,10 @@ document.querySelector('.profile-pic').addEventListener('click', function () {
     }
 });
 
+
+// Boton de sugerencias
+document.getElementById("btnSuggestions").addEventListener('click', openModalSuggestions);
+
 // Evitar que se cierre la tooltip al hacer clic dentro de la tooltip
 document.querySelector('.tooltip').addEventListener('click', function (event) {
     event.stopPropagation();
@@ -282,4 +286,36 @@ function cerrarSesion() {
     sessionStorage.clear();
 
     location.pathname = '/login.html';
+}
+
+function enviarSugerencia(event) {
+    event.preventDefault();
+
+    const { target } = event;
+    const { value: comment } = target.comment;
+
+    const data = { user: email, comment };
+
+    showLoader();
+    fetch(`${JIRA_API_URL}${JIRA_API_PORT}/suggestions`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.debug(data);
+            alert('error al intentar enviar la sugerencia, le sugiero que deje de sugerir');
+            alert('Nah mentira...');
+            alert('Sugerencia enviada... mas no leida... todavia');
+            modalClose();
+        })
+        .catch(error => {
+            alert('error al intentar enviar la sugerencia, le sugiero que deje de sugerir');
+            console.log(error);
+            hideLoader();
+        })
+        .finally(() => hideLoader());
 }

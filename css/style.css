@@ -213,3 +213,21 @@ button:hover {
 .btn-delete-worklog:hover {
     background-color: rgb(167, 14, 45);
 }
+
+.btn-suggestions {
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 1em;
+    margin-left: 1em;
+}
+
+.btn-suggestions:hover {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
+.btn-suggestions:active {
+    scale: .9;
+}

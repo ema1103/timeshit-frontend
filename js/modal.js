@@ -140,3 +140,25 @@ function openModalMeme() {
     modalContent.innerHTML = html;
     modal.style.display = "flex";
 }
+
+function openModalSuggestions() {
+    let html = `
+    <span class="close" onclick="modalClose();">&times;</span>
+    <div>
+        <h2>Enviame ideas, mejoras, o quejas, igual a quejarse a la quejeria</h2>
+        <p>Ayudame a mejorar esta aplicación 
+        para que te sea mas comoda de usar
+        con ideas utiles o divertidas. Ademas tipo... no sé, ayudas al medioambiente(?</p>
+        <form onsubmit='enviarSugerencia(event)'>
+            <div class="form-group comment">
+                <label for="comment">Comentarios:</label>
+                <textarea id="comment" name="comment" required></textarea>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    `;
+
+    modalContent.innerHTML = html;
+    modal.style.display = "flex";
+}
