@@ -102,9 +102,16 @@ function cargarHS(event, started) {
 
     const { target } = event;
     const { value: key } = target.ticket;
+    const { value: timeSpentHours } = target.timeSpentHours;
+    const { value: timeSpentMinutes } = target.timeSpentMinutes;
     const { value: comment } = target.comment;
-    const timeSpentSeconds = target.timeSpentHours.value * 60 * 60 + target.timeSpentMinutes.value * 60;
-    const data = { key, comment, timeSpentSeconds, started };
+    const timeSpentSeconds = timeSpentHours * 60 * 60 + timeSpentMinutes * 60;
+    const data = { key, comment, timeSpentHours, timeSpentMinutes, timeSpentSeconds, started };
+
+    if (event.submitter.innerText === 'Crear Plantilla') {
+        createTemplate(data);
+        return;
+    }
 
     showLoader();
     fetch(`${JIRA_API_URL}${JIRA_API_PORT}/worklog`, {
@@ -282,8 +289,10 @@ function renderWorklogs(startDate, endDate) {
 }
 
 function cerrarSesion() {
+    let LSTemplateList = localStorage.getItem('templateList');
     localStorage.clear();
     sessionStorage.clear();
+    localStorage.setItem('templateList', LSTemplateList);
 
     location.pathname = '/login.html';
 }

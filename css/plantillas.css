@@ -1,0 +1,50 @@
+.plantillas {
+    position: fixed;
+    right: -50%;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    z-index: 20;
+    background-color: #fff;
+    padding: 1em;
+    overflow-y: hidden;
+    transition: right 400ms ease-out;
+}
+
+.plantillas--active {
+    right: 0;
+}
+
+.plantillas__header {
+    padding: .5em;
+    margin-bottom: 1em;
+}
+
+.plantillas__body {
+    overflow-y: scroll;
+    max-height: 85vh;
+}
+
+.plantilla-card {
+    border: 1px solid black;
+    border-radius: 1em;
+    padding: 1em;
+    position: relative;
+    margin-bottom: 1em;
+}
+
+.plantilla-card:hover {
+    background-color: rgb(211, 255, 217);
+    cursor: pointer;
+}
+
+.plantilla-card:active {
+    background-color: rgb(173, 209, 178);
+    cursor: pointer;
+}
+
+.plantilla-card .close {
+    position: absolute;
+    right: .6em;
+    top: .4em;
+}

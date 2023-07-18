@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/alerta.css">
     <link rel="stylesheet" href="css/loader.css">
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/plantillas.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -55,11 +56,19 @@
             </div>
         </div>
     </div>
+    <div class="plantillas" id="plantillas">
+        <div class="plantillas__header">
+            <input type="text" name="plantillas-search" id="plantillas-search" onkeyup="renderAllTemplates();" placeholder="Buscar..." autocomplete="off" style="width: 70%;">
+        </div>
+        <div class="plantillas__body">
+        </div>
+    </div>
 
     <script src="js/alerta.js"></script>
     <script src="js/loader.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/meme.js"></script>
+    <script src="js/plantillas.js"></script>
     <script src="js/script.js"></script>
 </body>
 

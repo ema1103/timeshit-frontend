@@ -44,6 +44,7 @@ function openModalAddWorklog(dt) {
     let html = `
     <span class="close" onclick="modalClose();">&times;</span>
     <div>
+        <button onmouseup="seeMyTemplates();">Ver Mis Plantillas</button>
         <h2>Agregar horas</h2>
         <form onsubmit="cargarHS(event, '${dateFormatted}')">
             <div class="form-group">
@@ -70,6 +71,7 @@ function openModalAddWorklog(dt) {
                 <textarea id="comment" name="comment" required></textarea>
             </div>
             <button type="submit">Guardar</button>
+            <button type="submit" style="background-color: blue;">Crear Plantilla</button>
         </form>
     </div>
     `;
